@@ -8,8 +8,9 @@
 
 ## Analiza delniških trgov
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
-Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje in predikcijo gibanja posamezne delnice oziroma skupin delnic.
+
+Tekom svojega projekta bom primerjal stopnje rasti delnic in izračunal delež tržne kapitalizacije v primerjavi z državnim BDP-jem. Ker je v globaliziranem svetu 21. stoletja obstoječa velika razlika med državami in posamezniki sem se odločil še za primerjavo tržne kapitalizacije po državah. 
 
 ## Program
 
