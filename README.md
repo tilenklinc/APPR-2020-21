@@ -14,12 +14,12 @@ Tekom svojega projekta bom primerjal še stopnje rasti različnih delnic in izra
 
 #### Potek dela:
 1. Pridobitev podatkov s spleta (1. del)  
-    1.1. Izris price chart-a
-    1.2. Izris moving average-a (*Bollinger Band chart*)
-    1.3. Primerajva rasti z drugimi velikimi delnicami
-    1.4. Predikcija spremembe cen
-2. Pridobitev podatkov s spleta (2. del)
-    2.1. Pregled in izris velikosti tržne kapitalizacije po državah
+    1.1. Izris price chart-a  
+    1.2. Izris moving average-a (*Bollinger Band chart*)  
+    1.3. Primerajva rasti z drugimi velikimi delnicami  
+    1.4. Predikcija spremembe cen  
+2. Pridobitev podatkov s spleta (2. del)  
+    2.1. Pregled in izris velikosti tržne kapitalizacije po državah  
     2.2. Izračun deležv in izris
   ...
 
