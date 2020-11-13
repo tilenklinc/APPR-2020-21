@@ -8,17 +8,17 @@
 
 ## Analiza delniških trgov
 
-Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje in predikcijo gibanja posamezne delnice oziroma skupin delnic.
+Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje in predikcijo gibanja posamezne delnice (Apple/Nvidia/Amazon/Microsoft) in s tem preveril, če je delnica primerna za investicijo ali ne.
 
-Tekom svojega projekta bom primerjal stopnje rasti delnic in izračunal delež tržne kapitalizacije v primerjavi z državnim BDP-jem. Ker je v globaliziranem svetu 21. stoletja obstoječa velika razlika med državami in posamezniki, sem se odločil še za primerjavo tržne kapitalizacije po državah.
+Tekom svojega projekta bom primerjal še stopnje rasti različnih delnic in izračunal delež tržne kapitalizacije v primerjavi z državnim BDP-jem. Ker je v globaliziranem svetu 21. stoletja obstoječa velika razlika med državami in posamezniki, sem se odločil še za primerjavo tržne kapitalizacije po državah.
 
-*Prva tabela:*
+###Potek dela:
+* Pridobitev podatkov s spleta
 
 
-
-*Viri:*
+###*Viri:*
 * [Tržna kapitaliazacija po državah](https://data.worldbank.org/indicator/CM.MKT.LCAP.CD?name_desc=true)
-* [Podatki o delnicah](https://finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHUZl6qKCy7-uHn2P3_u2szy0esOsxzYfZj6oBmPSdpchEzC7fncHVFeor3SnDmfnckXFBG79Kxj4dqwWHzDFCFiTwdcxuP0cYW8VUB1qhbTEE5Uk-M1mDF5E3Eb5qojnsy1BhnjC8TQ40RWYjXdME5uVwwcHSycNrE3rtHrRp_N)
+* [Podatki o delnicah](https://finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHUZl6qKCy7-uHn2P3_u2szy0esOsxzYfZj6oBmPSdpchEzC7fncHVFeor3SnDmfnckXFBG79Kxj4dqwWHzDFCFiTwdcxuP0cYW8VUB1qhbTEE5Uk-M1mDF5E3Eb5qojnsy1BhnjC8TQ40RWYjXdME5uVwwcHSycNrE3rtHrRp_N) \
 Podatke iz strani *WorldBank* lahko pridobimo v xls/xml/csv obliki, podatke iz *Yahoo* ali *Google Finance* pa pridobimo direktno s pomočjo API.
 ## Program
 
