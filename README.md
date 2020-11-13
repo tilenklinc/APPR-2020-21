@@ -1,11 +1,12 @@
 # Analiza podatkov s programom R, 2020/21
+### Avtor: Tilen Klinc
 
-Repozitorij z gradivi pri predmetu APPR v študijskem letu 2020/21
+*Repozitorij z gradivi pri predmetu APPR v študijskem letu 2020/21*
 
 * [![Shiny](http://mybinder.org/badge.svg)](http://mybinder.org/v2/gh/tilenklinc/APPR_projektna/master?urlpath=shiny/APPR-2020-21/projekt.Rmd) Shiny
 * [![RStudio](http://mybinder.org/badge.svg)](http://mybinder.org/v2/gh/tilenklinc/APPR_projektna/master?urlpath=rstudio) RStudio
 
-## Tematika
+## Analiza delniških trgov
 
 Izbrali si boste temo, s katero se bo vaš projekt ukvarjal.
 Tukaj boste napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
