@@ -17,8 +17,8 @@ Tekom svojega projekta bom primerjal stopnje rasti delnic in izračunal delež t
 
 
 *Viri:*
-Viri iz katerih sem pridobil podatke:
 * [Tržna kapitaliazacija po državah](https://data.worldbank.org/indicator/CM.MKT.LCAP.CD?name_desc=true)
+* [Podatki o delnicah](https://finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHUZl6qKCy7-uHn2P3_u2szy0esOsxzYfZj6oBmPSdpchEzC7fncHVFeor3SnDmfnckXFBG79Kxj4dqwWHzDFCFiTwdcxuP0cYW8VUB1qhbTEE5Uk-M1mDF5E3Eb5qojnsy1BhnjC8TQ40RWYjXdME5uVwwcHSycNrE3rtHrRp_N)
 
 ## Program
 
