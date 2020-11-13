@@ -13,14 +13,21 @@ Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral 
 Tekom svojega projekta bom primerjal še stopnje rasti različnih delnic in izračunal delež tržne kapitalizacije v primerjavi z državnim BDP-jem. Ker je v globaliziranem svetu 21. stoletja obstoječa velika razlika med državami in posamezniki, sem se odločil še za primerjavo tržne kapitalizacije po državah.
 
 #### Potek dela:
-* Pridobitev podatkov s spleta
-* 
+1. Pridobitev podatkov s spleta (1. del)
+  1.1. Izris price chart-a
+  1.2. Izris moving average-a (*Bollinger Band chart*)
+  1.3. Primerajva rasti z drugimi velikimi delnicami
+  1.4. Predikcija spremembe cen
+2. Pridobitev podatkov s spleta (2. del)
+  2.1. Pregled in izris velikosti tržne kapitalizacije po državah
+  2.2. Izračun deležv in izris
+  ...
 
 
 #### *Viri:*
 * [Tržna kapitaliazacija po državah](https://data.worldbank.org/indicator/CM.MKT.LCAP.CD?name_desc=true)
 * [Podatki o delnicah](https://finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHUZl6qKCy7-uHn2P3_u2szy0esOsxzYfZj6oBmPSdpchEzC7fncHVFeor3SnDmfnckXFBG79Kxj4dqwWHzDFCFiTwdcxuP0cYW8VUB1qhbTEE5Uk-M1mDF5E3Eb5qojnsy1BhnjC8TQ40RWYjXdME5uVwwcHSycNrE3rtHrRp_N) \
-<span style="font-size:10px;">Podatke iz strani *WorldBank* lahko pridobimo v .xls/.xml/.csv obliki, podatke iz *Yahoo* ali *Google Finance* pa pridobimo direktno s pomočjo API.</span>
+<span style="font-size:9px;">Podatke iz strani *WorldBank* lahko pridobimo v .xls/.xml/.csv obliki, podatke iz *Yahoo* ali *Google Finance* pa pridobimo direktno s pomočjo API.</span>
 ## Program
 
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`.
