@@ -21,6 +21,10 @@ Tekom svojega projekta bom primerjal še stopnje rasti različnih delnic in izra
 2. Pridobitev podatkov s spleta (2. del)  
     2.1. Pregled in izris velikosti tržne kapitalizacije po državah  
     2.2. Izračun deležv in izris ...
+    
+### Grupiranje:
+* Pregled tabele S&P500 oziroma S&P350, ki prikazuje top 500/350 podjetji v ZDA/EU.
+* Pri grupiranju podatki pregledani po različnih modelih npr. CAPM(*model, ki opiše povezavo med sistematičnim tveganjem in pričakovano stopnjo donosa*).
 
 
 #### *Viri:*
