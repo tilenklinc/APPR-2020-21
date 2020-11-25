@@ -8,7 +8,7 @@
 
 ## Analiza delniških trgov
 
-Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje in predikcijo gibanja posamezne delnice (Apple/Nvidia/Amazon/Microsoft) in s tem preveril, če je delnica primerna za investicijo ali ne.
+Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje, kasneje pa še na predikcijo gibanja posamezne delnice ([Apple](https://finance.yahoo.com/quote/AAPL/history?p=AAPL)/[Nvidia](https://finance.yahoo.com/quote/NVDA/history?p=NVDA)/[Amazon](https://finance.yahoo.com/quote/AMZN/history?p=AMZN)/[Microsoft](https://finance.yahoo.com/quote/MSFT/history?p=MSFT)/[AMD](https://finance.yahoo.com/quote/AMD/history?p=AMD)/[Alphabet](https://finance.yahoo.com/quote/GOOGL/history?p=GOOGL)/[Adobe](https://finance.yahoo.com/quote/ADBE/history?p=ADBE)/[Intel](https://finance.yahoo.com/quote/INTC/history?p=INTC)) in preveril kako so dogajanja v preteklih tednih vplivala na gibanje delnice.
 
 Tekom svojega projekta bom primerjal še stopnje rasti različnih delnic in izračunal delež tržne kapitalizacije v primerjavi z državnim BDP-jem. Ker je v globaliziranem svetu 21. stoletja obstoječa velika razlika med državami in posamezniki, sem se odločil še za primerjavo tržne kapitalizacije po državah.
 
