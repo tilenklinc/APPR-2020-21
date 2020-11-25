@@ -8,24 +8,19 @@
 
 ## Analiza delniških trgov
 
-Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje, kasneje pa še na predikcijo gibanja posamezne delnice ([Apple](https://finance.yahoo.com/quote/AAPL/history?p=AAPL)/[Nvidia](https://finance.yahoo.com/quote/NVDA/history?p=NVDA)/[Amazon](https://finance.yahoo.com/quote/AMZN/history?p=AMZN)/[Microsoft](https://finance.yahoo.com/quote/MSFT/history?p=MSFT)/[AMD](https://finance.yahoo.com/quote/AMD/history?p=AMD)/[Alphabet](https://finance.yahoo.com/quote/GOOGL/history?p=GOOGL)/[Adobe](https://finance.yahoo.com/quote/ADBE/history?p=ADBE)/[Intel](https://finance.yahoo.com/quote/INTC/history?p=INTC)) in preveril kako so dogajanja v preteklih tednih vplivala na gibanje delnice.
+Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje, kasneje pa še na predikcijo gibanja posamezne delnice ([Apple](https://finance.yahoo.com/quote/AAPL/history?p=AAPL)/[Nvidia](https://finance.yahoo.com/quote/NVDA/history?p=NVDA)/[Amazon](https://finance.yahoo.com/quote/AMZN/history?p=AMZN)/[Microsoft](https://finance.yahoo.com/quote/MSFT/history?p=MSFT)/[AMD](https://finance.yahoo.com/quote/AMD/history?p=AMD)/[Alphabet](https://finance.yahoo.com/quote/GOOGL/history?p=GOOGL)/[Adobe](https://finance.yahoo.com/quote/ADBE/history?p=ADBE)/[Intel](https://finance.yahoo.com/quote/INTC/history?p=INTC)/[Zoom](https://finance.yahoo.com/quote/ZM/history?p=ZM)) in preveril kako so dogajanja v preteklih tednih vplivala na gibanje delnice.
 
-Tekom svojega projekta bom primerjal še stopnje rasti različnih delnic in izračunal delež tržne kapitalizacije v primerjavi z državnim BDP-jem. Ker je v globaliziranem svetu 21. stoletja obstoječa velika razlika med državami in posamezniki, sem se odločil še za primerjavo tržne kapitalizacije po državah.
+Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velikost tržne kapitalizacije v letu 2019. 
 
 #### Potek dela:
 1. Pridobitev podatkov s spleta (1. del)  
     1.1. Izris price chart-a  
-    1.2. Izris moving average-a (*Bollinger Band chart*)  
+    1.2. *Izris moving average-a (Bollinger Band chart)*  
     1.3. Primerajva rasti z drugimi velikimi delnicami  
     1.4. Predikcija spremembe cen  
 2. Pridobitev podatkov s spleta (2. del)  
-    2.1. Pregled in izris velikosti tržne kapitalizacije po državah  
-    2.2. Izračun deležv in izris ...
-    
-### Grupiranje:
-* Pregled tabele S&P500 oziroma S&P350, ki prikazuje top 500/350 podjetji v ZDA/EU.
-* Pri grupiranju podatki pregledani po različnih modelih npr. CAPM(*model, ki opiše povezavo med sistematičnim tveganjem in pričakovano stopnjo donosa*).
-
+    2.1. Pregled in izris velikosti tržne kapitalizacije po borzah  
+    2.2. Ponazoritev deleža tržne kapitalizacije po borzah na zemljevidu sveta
 
 #### *Viri:*
 * [Tržna kapitaliazacija po državah](https://data.worldbank.org/indicator/CM.MKT.LCAP.CD?name_desc=true)
