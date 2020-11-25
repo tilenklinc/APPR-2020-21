@@ -8,7 +8,16 @@
 
 ## Analiza delniških trgov
 
-Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje, kasneje pa še na predikcijo gibanja posamezne delnice ([Apple](https://finance.yahoo.com/quote/AAPL/history?p=AAPL)/[Nvidia](https://finance.yahoo.com/quote/NVDA/history?p=NVDA)/[Amazon](https://finance.yahoo.com/quote/AMZN/history?p=AMZN)/[Microsoft](https://finance.yahoo.com/quote/MSFT/history?p=MSFT)/[AMD](https://finance.yahoo.com/quote/AMD/history?p=AMD)/[Alphabet](https://finance.yahoo.com/quote/GOOGL/history?p=GOOGL)/[Adobe](https://finance.yahoo.com/quote/ADBE/history?p=ADBE)/[Intel](https://finance.yahoo.com/quote/INTC/history?p=INTC)/[Zoom](https://finance.yahoo.com/quote/ZM/history?p=ZM)) in preveril kako so dogajanja v preteklih tednih vplivala na gibanje delnice. Vse delnice so na borzi NASDAQ.
+Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral analizo delniškega trga, pri čemer se bom primarno osredotočal na gibanje, kasneje pa še na predikcijo gibanja posamezne delnice ([Apple](https://finance.yahoo.com/quote/AAPL/history?p=AAPL)
+/[Nvidia](https://finance.yahoo.com/quote/NVDA/history?p=NVDA)
+/[Amazon](https://finance.yahoo.com/quote/AMZN/history?p=AMZN)
+/[Microsoft](https://finance.yahoo.com/quote/MSFT/history?p=MSFT)
+/[AMD](https://finance.yahoo.com/quote/AMD/history?p=AMD)
+/[Alphabet](https://finance.yahoo.com/quote/GOOGL/history?p=GOOGL)
+/[Adobe](https://finance.yahoo.com/quote/ADBE/history?p=ADBE)
+/[Intel](https://finance.yahoo.com/quote/INTC/history?p=INTC)
+/[Zoom](https://finance.yahoo.com/quote/ZM/history?p=ZM)
+/[Facebook](https://finance.yahoo.com/quote/FB/history?p=FB)) in preveril kako so dogajanja v preteklih tednih vplivala na gibanje delnice. Vse delnice so na borzi NASDAQ.
 
 Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velikost tržne kapitalizacije v letu 2019 in jih razvrstil na zemljevidu.
 
@@ -27,6 +36,7 @@ Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velik
 * [Tržna kapitalizacija po borzah](https://en.wikipedia.org/wiki/List_of_stock_exchanges)
 * [Podatki o delnicah - privzeti iz Yahoo Finance](https://finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHUZl6qKCy7-uHn2P3_u2szy0esOsxzYfZj6oBmPSdpchEzC7fncHVFeor3SnDmfnckXFBG79Kxj4dqwWHzDFCFiTwdcxuP0cYW8VUB1qhbTEE5Uk-M1mDF5E3Eb5qojnsy1BhnjC8TQ40RWYjXdME5uVwwcHSycNrE3rtHrRp_N) \
 <span style="font-size:9px;">Podatke iz strani *WorldBank* lahko pridobimo v .xls/.xml/.csv obliki, podatke iz *Yahoo* ali *Google Finance* pa pridobimo direktno s pomočjo API.</span>  
+* [Rpaket](https://cran.r-project.org/web/packages/quantmod/quantmod.pdf)
 
 ## Program
 
