@@ -7,14 +7,18 @@
 
 library(quantmod)
 library(xml2)
-library(rvest) #! lahko izbrišeš
 library(dplyr)
 library(tidyr)
+library(devtools)
+library(shiny)
+library(rvest)
+install_github("jaanos/rvest", ref="table-span-filling-v0.3.6.196")
+
 
 uvozi.delnice <- function() {
 symbols <- c("GOOGL","AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")
 
-getSymbols(symbols, src = "yahoo", from = "2010-01-01", to = "2020-11-01", auto.assign = TRUE)
+getSymbols(symbols, src = "yahoo", from = "2010-01-01", to = "2020-11-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
 
 aapl <- data.frame(AAPL) %>%
   tibble::rownames_to_column("Datum") 
@@ -74,8 +78,8 @@ uvozi.kapitalizacijo <- function() {
   }
 
   colnames(tabela) <- c("Rang", "Leto", "Borza","Simbol", "Regija", "Kraj",
-                        "Tržna kapitalizacija", "Mesečni trading volumen",
-                        "Časovni pas", "Sprememba", "DST", "Odprtje", "Zaprtje",
+                        "Market_cap", "Monthly_volume",
+                        "Casovni_pas", "Sprememba", "DST", "Odprtje", "Zaprtje",
                         "Kosilo", "Odprtje(UTC)", "Zaprtje(UTC)")
   
   #Izbris stolpcev
