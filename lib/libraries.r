@@ -1,4 +1,4 @@
-install.packages("xml2", type="source")
+#install.packages("xml2", type="source")
 library(knitr)
 library(rvest)
 library(gsubfn)

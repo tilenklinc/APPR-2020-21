@@ -50,6 +50,7 @@ zdruzena <- left_join(aapl, adbe, by="Datum") %>% #združi vse tabele v eno
   separate(Ime,c("Ime","Tip"),"[.]")
 
 return(zdruzena)
+# write.csv(zdruzena,"zdruzena.csv", row.names = TRUE)
 
 }
 
@@ -85,6 +86,8 @@ uvozi.kapitalizacijo <- function() {
   
   return(tabela)
   View(borze.kraji)
+  
+  write.csv(tabela,"podatki\\tabela.csv", row.names = TRUE)
 }
 
 
