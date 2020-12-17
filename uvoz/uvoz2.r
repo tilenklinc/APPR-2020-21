@@ -47,7 +47,8 @@ zdruzena <- left_join(aapl, adbe, by="Datum") %>% #združi vse tabele v eno
   left_join(sne, by="Datum") %>%
   left_join(amd, by="Datum") %>%
   pivot_longer(-Datum, names_to = "Ime", values_to="Vrednost") %>%
-  separate(Ime,c("Ime","Tip"),"[.]")
+  separate(Ime,c("Ime","Tip"),"[.]") %>%
+  mutate(Datum=as.Date(Datum))
 
 return(zdruzena)
 # write.csv(zdruzena,"zdruzena.csv", row.names = TRUE)
