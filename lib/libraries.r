@@ -1,3 +1,4 @@
+install.packages("xml2", type="source")
 library(knitr)
 library(rvest)
 library(gsubfn)
@@ -7,7 +8,7 @@ library(shiny)
 library(quantmod)
 library(xml2)
 library(dplyr)
-install_github("jaanos/rvest", ref="table-span-filling-v0.3.6.196")
+
 
 
 options(gsubfn.engine="R")

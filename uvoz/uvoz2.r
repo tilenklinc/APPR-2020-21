@@ -5,15 +5,6 @@
 #Apple(AAPL), Nvidia Corporation(NVDA), Amazon.com(AMZN), Microsoft(MSFT),
 #AMD(AMD), Intel Corp(INTC), Alphabet Inc(GOOGL), Adobe(ADBE), Sony(SNE)
 
-library(quantmod)
-library(xml2)
-library(dplyr)
-library(tidyr)
-library(devtools)
-library(shiny)
-library(rvest)
-install_github("jaanos/rvest", ref="table-span-filling-v0.3.6.196")
-
 
 uvozi.delnice <- function() {
 symbols <- c("GOOGL","AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")
@@ -93,6 +84,7 @@ uvozi.kapitalizacijo <- function() {
                             kraj=unlist(kraji))
   
   return(tabela)
+  View(borze.kraji)
 }
 
 
