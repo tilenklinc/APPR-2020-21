@@ -22,7 +22,7 @@ Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velik
 
 #### Tabele:
 
-### * Podatki o delnicah:
+###  Podatki o delnicah:
 * Datum
 * Vrednost ob odprtju
 * Vrednost ob zaprtju
@@ -30,8 +30,11 @@ Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velik
 * Maksimalna vrednost na dan
 * Volumen delnice na trgu
 
-### * Podatki o borzah:
-*
+###  Podatki o borzah:
+* Leto
+* Regija, kjer se borza nahaja
+* Tržna kapitalizacija
+* Mesečni volumen trgovanja
 
 #### *Viri:*
 * [Tržna kapitalizacija po borzah](https://en.wikipedia.org/wiki/List_of_stock_exchanges)
