@@ -39,8 +39,7 @@ Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velik
 #### *Viri:*
 * [Tržna kapitalizacija po borzah](https://en.wikipedia.org/wiki/List_of_stock_exchanges)
 * [Podatki o delnicah - privzeti iz Yahoo Finance](https://finance.yahoo.com/?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAHUZl6qKCy7-uHn2P3_u2szy0esOsxzYfZj6oBmPSdpchEzC7fncHVFeor3SnDmfnckXFBG79Kxj4dqwWHzDFCFiTwdcxuP0cYW8VUB1qhbTEE5Uk-M1mDF5E3Eb5qojnsy1BhnjC8TQ40RWYjXdME5uVwwcHSycNrE3rtHrRp_N) \
-<span style="font-size:9px;">Podatke iz strani *WorldBank* lahko pridobimo v .xls/.xml/.csv obliki, podatke iz *Yahoo* ali *Google Finance* pa pridobimo direktno s pomočjo API.</span>  
-* [Rpaket](https://cran.r-project.org/web/packages/quantmod/quantmod.pdf)
+<span style="font-size:9px;">Podatke iz strani *WorldBank* lahko pridobimo v .xls/.xml/.csv obliki, podatke iz *Yahoo* ali *Google Finance* pa pridobimo direktno s pomočjo API.</span>
 
 ## Program
 

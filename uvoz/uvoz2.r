@@ -38,7 +38,7 @@ nvda <- data.frame(NVDA) %>%
 sne <- data.frame(SNE) %>%
   tibble::rownames_to_column("Datum")
 
-zdruzena <- left_join(aapl, adbe, by="Datum") %>% #združi vse tabele v eno
+zdruzena <- left_join(aapl, adbe, by="Datum")%>% #združi vse tabele v eno
   left_join(amd, by="Datum") %>%
   left_join(msft, by="Datum") %>%
   left_join(intc, by="Datum") %>%
@@ -46,14 +46,16 @@ zdruzena <- left_join(aapl, adbe, by="Datum") %>% #združi vse tabele v eno
   left_join(nvda, by="Datum") %>%
   left_join(sne, by="Datum") %>%
   left_join(amd, by="Datum") %>%
-  pivot_longer(-Datum, names_to = "Ime", values_to="Vrednost") %>%
+  pivot_longer(-Datum, names_to = "Ime", values_to="Vrednost")%>%
   separate(Ime,c("Ime","Tip"),"[.]") %>%
-  mutate(Datum=as(Datum))
+  mutate(Datum=as.Date(Datum))
 
 return(zdruzena)
+}
+zdruzena <- uvozi.delnice()
+
 # write.csv(zdruzena,"zdruzena.csv", row.names = TRUE)
 
-}
 
 
 #HTML
@@ -69,6 +71,7 @@ uvozi.kapitalizacijo <- function() {
       Encoding(tabela[[i]]) <- "UTF-8"
     }
   }
+  
 
   colnames(tabela) <- c("Rang", "Leto", "Borza","Simbol", "Regija", "Kraj",
                         "Market_cap", "Monthly_volume",
@@ -77,6 +80,8 @@ uvozi.kapitalizacijo <- function() {
   
   #Izbris stolpcev
   tabela[8:16] <- list(NULL)
+  tabela[4:6] <- list(NULL)
+  tabela[2] <- list(NULL)
   
   vrstice <- html_tabela %>% html_nodes(xpath=".//tr") %>% .[-1]
   borze <- vrstice %>% html_nodes(xpath="./td[3]") %>% html_text()
@@ -85,10 +90,16 @@ uvozi.kapitalizacijo <- function() {
                                          . %>% { rep(borze[.], length(kraji[[.]])) }) %>% unlist(),
                             kraj=unlist(kraji))
   
-  return(tabela)
-  View(borze.kraji)
+  tabela$Market_cap[c(16:23)] <- 1.372
+  tabela$Market_cap <- as.numeric(gsub(",",".",tabela$Market_cap))
   
-  write.csv(tabela,"podatki\\tabela.csv", row.names = TRUE)
+  tabela <- tabela[-c(16:23), ]
+  
+  return(tabela)
+  
+  
+  # write.csv(tabela,"podatki\\tabela.csv", row.names = TRUE)
 }
 
+kapitalizacija <- uvozi.kapitalizacijo()
 
