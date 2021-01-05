@@ -79,7 +79,7 @@ uvozi.kapitalizacijo <- function() {
                         "Kosilo", "Odprtje(UTC)", "Zaprtje(UTC)")
   
   #Izbris stolpcev
-  tabela[8:16] <- list(NULL)
+  tabela[9:16] <- list(NULL)
   tabela[4:6] <- list(NULL)
   tabela[2] <- list(NULL)
   
