@@ -6,10 +6,9 @@ ggplot(zdruzena %>% filter(Tip == "Open",
        aes(x=Datum, y=Vrednost, color=Ime)) + geom_line()
   
 ggplot(zdruzena %>% filter(Tip == "Open",
-                             Ime %in% c("AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")),
-         aes(x=Datum, y=Vrednost, color=Ime)) + geom_line() +
-    scale_x_continuous(limits = seq(as.Date("2012-02-12"), as.Date("2014-02-12"), by = "1 year"))
-  xx <- zdruzena[zdruzena$Datum >= "2012-01-01" & zdruzena$Datum <= "2013-01-01",1]
+                           Ime %in% c("AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")),
+       aes(x=Datum, y=Vrednost, color=Ime)) + geom_line() + 
+  xlim(as.Date(c("2020-10-01", "2020-11-01"))) + ylim(c(0,600))
 
 
 #lineChart(AMZN, line.type = 'h', theme = 'white')

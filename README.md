@@ -20,16 +20,18 @@ Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral 
 
 Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velikost tržne kapitalizacije v letu 2019 in jih razvrstil na zemljevidu.
 
-#### Potek dela:
-1. Pridobitev podatkov s spleta (1. del)  
-    1.1. Izris price chart-a  
-    1.2. *Izris moving average-a (Bollinger Band chart)*  
-    1.3. Primerajva rasti z drugimi velikimi delnicami  
-    1.4. Predikcija spremembe cen  
-2. Pridobitev podatkov s spleta (2. del)  
-    2.1. Pregled in izris velikosti tržne kapitalizacije po borzah  
-    2.2. Ponazoritev deleža tržne kapitalizacije po borzah na zemljevidu sveta
-3. Zaključno oblikovanje naloge
+#### Tabele:
+
+### * Podatki o delnicah:
+* Datum
+* Vrednost ob odprtju
+* Vrednost ob zaprtju
+* Minimalna vrednost na dan
+* Maksimalna vrednost na dan
+* Volumen delnice na trgu
+
+### * Podatki o borzah:
+*
 
 #### *Viri:*
 * [Tržna kapitalizacija po borzah](https://en.wikipedia.org/wiki/List_of_stock_exchanges)
