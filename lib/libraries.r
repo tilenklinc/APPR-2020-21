@@ -8,6 +8,7 @@ library(shiny)
 library(quantmod)
 library(xml2)
 library(dplyr)
+library(RColorBrewer)
 
 
 

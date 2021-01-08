@@ -5,11 +5,12 @@
 #Apple(AAPL), Nvidia Corporation(NVDA), Amazon.com(AMZN), Microsoft(MSFT),
 #AMD(AMD), Intel Corp(INTC), Alphabet Inc(GOOGL), Adobe(ADBE), Sony(SNE)
 
+source("lib/libraries.r", encoding="UTF-8")
 
 uvozi.delnice <- function() {
 symbols <- c("GOOGL","AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")
 
-getSymbols(symbols, src = "yahoo", from = "2010-01-01", to = "2020-11-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+getSymbols(symbols, src = "yahoo", from = "2010-01-01", to = "2020-12-30", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
 
 aapl <- data.frame(AAPL) %>%
   tibble::rownames_to_column("Datum") 
@@ -54,8 +55,6 @@ return(zdruzena)
 }
 zdruzena <- uvozi.delnice()
 
-# write.csv(zdruzena,"zdruzena.csv", row.names = TRUE)
-
 
 
 #HTML
@@ -80,9 +79,8 @@ uvozi.kapitalizacijo <- function() {
   
   #Izbris stolpcev
   tabela[9:16] <- list(NULL)
-  tabela[4:6] <- list(NULL)
-  tabela[2] <- list(NULL)
-  
+  tabela <- tabela %>% select(3,5,7,8)
+  tabela
   vrstice <- html_tabela %>% html_nodes(xpath=".//tr") %>% .[-1]
   borze <- vrstice %>% html_nodes(xpath="./td[3]") %>% html_text()
   kraji <- vrstice[1:14] %>% html_nodes(xpath="./td[6]") %>% lapply(. %>% html_nodes(xpath="./a") %>% html_text())
@@ -97,8 +95,6 @@ uvozi.kapitalizacijo <- function() {
   
   return(tabela)
   
-  
-  # write.csv(tabela,"podatki\\tabela.csv", row.names = TRUE)
 }
 
 kapitalizacija <- uvozi.kapitalizacijo()

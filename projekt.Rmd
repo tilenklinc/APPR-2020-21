@@ -59,9 +59,8 @@ z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
 
 Spodnji graf prikazuje porazdelitev števila naselij v občinah.
 
-```{r histogram, fig.align='center', fig.cap='Histogram števila naselij v občinah'}
-# ggplot(obcine, aes(x=naselja)) + geom_histogram() +
-#   ggtitle("Pogostost števila naselij") + xlab("Število naselij") + ylab("Število občin")
+```{r Gibanje cen delnic, fig.align='center', fig.cap='Gibanje cen delnic'}
+print(graf2)
 ```
 
 ***
@@ -73,7 +72,7 @@ source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
 ```{r}
-graf8
+print(graf2)
 ```
 
 Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
