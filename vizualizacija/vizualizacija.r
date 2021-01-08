@@ -4,8 +4,6 @@ APPL.close <- zdruzena %>% filter(Ime == "AAPL", Tip == "Close")
 
 ggplot(APPL.close, aes(x=Datum, y=Vrednost)) + geom_line()
 
-
-graf1 <- plot(AMZN$AMZN.Open)
 graf2 <- ggplot(zdruzena %>% filter(Tip == "Open",
                            Ime %in% c("AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")),
        aes(x=Datum, y=Vrednost, color=Ime)) + geom_line() + ggtitle("Cena delnic skozi čas") + 
@@ -23,11 +21,11 @@ graf3 <- ggplot(zdruzena %>% filter(Tip == "Open",
                 aes(x=Datum, y=Vrednost, color=Ime)) + geom_line() + 
   xlim(as.Date(c("2020-06-15", "2020-10-15"))) + ylim(c(0,600))
 graf3
-graf4 <- lineChart(AMZN, line.type = 'h', theme = 'black')
+# graf4 <- lineChart(AMZN, line.type = 'h', theme = 'black')
 
-procentAMD <- zdruzena  %>% filter(Tip == "Open", Ime == "AMD")
-procentAMD <- distinct(procentAMD)
-procentAMD$Vrednost %>% sapply(`/` )
+#procentAMD <- zdruzena  %>% filter(Tip == "Open", Ime == "AMD")
+#procentAMD <- distinct(procentAMD)
+#procentAMD$Vrednost %>% sapply(`/` )
 
 graf5 <- candleChart(NVDA, TA=c(addMACD(),addVo()), subset = '2019', theme='white')
 graf6 <- candleChart(NVDA, TA=NULL, subset = '2019', theme='white')

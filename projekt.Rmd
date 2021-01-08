@@ -36,24 +36,21 @@ Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
 source("uvoz/uvoz2.r", encoding="UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Svoje podatke sem uvozil v obliki HTML iz Wikipedije in kot xml preko Yahoo Finance strani.
+Pridobil in oblikoval sem dve osnovni tabeli:
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
 
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
+1. Tabela s podatkih o delnicah (v obliki tidyData)
+  -`Datum` - vsi dnevi od 1.1.2010 do 1.1.2021 (datum)
+  - `Ime` - ime delnice, (besedilo)
+  - `Tip` - podatek: podatki izmerjeni na datum ob odprtju/zaprtju ter najvišja/najnižja vrednost (besedilo)
+  - `Vrednost` - meritev: cena delnice v določenem trenutku (število)
+
+2. HTML tabela s podatki o tržni kapitalizaciji
+  -`Borza` - ime borze (besedilo)
+  - `Regija` - podatek kje se borza "nahaja" (besedilo)
+  - `Market_cap` - meritev: tržna kapitalizacija na posamezni borzi, (število)
+  - `Monthly_volume` - meritev: mesečno trgovanje (število),
 
 **Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
 

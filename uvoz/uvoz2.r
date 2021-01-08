@@ -10,7 +10,7 @@ source("lib/libraries.r", encoding="UTF-8")
 uvozi.delnice <- function() {
 symbols <- c("GOOGL","AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")
 
-getSymbols(symbols, src = "yahoo", from = "2010-01-01", to = "2020-12-30", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+getSymbols(symbols, src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
 
 aapl <- data.frame(AAPL) %>%
   tibble::rownames_to_column("Datum") 
@@ -55,7 +55,17 @@ return(zdruzena)
 }
 zdruzena <- uvozi.delnice()
 
+uvozi.NVDA <- function() {
+NVDA <- getSymbols("NVDA", src = "yahoo", from = "2010-01-01", to = "2020-12-30", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+return(NVDA)
+}
+NVDA <- uvozi.NVDA()
 
+uvozi.AMD <- function() {
+  getSymbols("AMD", src = "yahoo", from = "2010-01-01", to = "2020-12-30", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  return(AMD)
+}
+AMD <- uvozi.AMD()
 
 #HTML
 
@@ -71,7 +81,7 @@ uvozi.kapitalizacijo <- function() {
     }
   }
   
-
+  
   colnames(tabela) <- c("Rang", "Leto", "Borza","Simbol", "Regija", "Kraj",
                         "Market_cap", "Monthly_volume",
                         "Casovni_pas", "Sprememba", "DST", "Odprtje", "Zaprtje",
@@ -90,6 +100,8 @@ uvozi.kapitalizacijo <- function() {
   
   tabela$Market_cap[c(16:23)] <- 1.372
   tabela$Market_cap <- as.numeric(gsub(",",".",tabela$Market_cap))
+  tabela$Monthly_volume <- as.numeric(gsub(",",".",tabela$Monthly_volume))
+  
   
   tabela <- tabela[-c(16:23), ]
   
