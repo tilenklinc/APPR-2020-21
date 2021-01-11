@@ -56,13 +56,13 @@ return(zdruzena)
 zdruzena <- uvozi.delnice()
 
 uvozi.NVDA <- function() {
-NVDA <- getSymbols("NVDA", src = "yahoo", from = "2010-01-01", to = "2020-12-30", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  getSymbols("NVDA", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
 return(NVDA)
 }
 NVDA <- uvozi.NVDA()
 
 uvozi.AMD <- function() {
-  getSymbols("AMD", src = "yahoo", from = "2010-01-01", to = "2020-12-30", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  getSymbols("AMD", src = "yahoo", from = "2010-01-01", to = "2021-11-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
   return(AMD)
 }
 AMD <- uvozi.AMD()

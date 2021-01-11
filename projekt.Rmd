@@ -11,6 +11,9 @@ runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+# Če želimo nastaviti pisave v PDF-ju, odkomentiramo
+# in sledimo navodilom v programu.
+#source("fontconfig.r", encoding="UTF-8")
 knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
 
 # Uvoz vseh potrebnih knjižnic
@@ -23,10 +26,9 @@ source("lib/rstudio.r", encoding="UTF-8")
 ```
 
 # Izbira teme
-
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
-
-![](slike/cute_dog.jpg)
+Za projektno nalogo pri APPR sem pripravil analizo delniških trgov in prikaz borz ter
+pripadajočih tržnih kapitalizacij na zemljevidu sveta.
+![](slike/stock_market.png){width=20%}
 
 ***
 
@@ -40,26 +42,18 @@ Svoje podatke sem uvozil v obliki HTML iz Wikipedije in kot xml preko Yahoo Fina
 Pridobil in oblikoval sem dve osnovni tabeli:
 
 
-1. Tabela s podatkih o delnicah (v obliki tidyData)
-  -`Datum` - vsi dnevi od 1.1.2010 do 1.1.2021 (datum)
-  - `Ime` - ime delnice, (besedilo)
-  - `Tip` - podatek: podatki izmerjeni na datum ob odprtju/zaprtju ter najvišja/najnižja vrednost (besedilo)
-  - `Vrednost` - meritev: cena delnice v določenem trenutku (število)
+1. Tabela s podatkih o delnicah (v obliki tidyData):    
+    *`Datum` - vsi dnevi od 1.1.2010 do 1.1.2021 (datum)
+* `Ime` - ime delnice, (besedilo)
+* `Tip` - podatek: podatki izmerjeni na datum ob odprtju/zaprtju ter najvišja/najnižja vrednost (besedilo)
+* `Vrednost` - meritev: cena delnice v določenem trenutku (število)
 
-2. HTML tabela s podatki o tržni kapitalizaciji
-  -`Borza` - ime borze (besedilo)
-  - `Regija` - podatek kje se borza "nahaja" (besedilo)
-  - `Market_cap` - meritev: tržna kapitalizacija na posamezni borzi, (število)
-  - `Monthly_volume` - meritev: mesečno trgovanje (število),
-
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
-
-Spodnji graf prikazuje porazdelitev števila naselij v občinah.
-
-```{r Gibanje cen delnic, fig.align='center', fig.cap='Gibanje cen delnic'}
-print(graf2)
-```
-
+2. HTML tabela s podatki o tržni kapitalizaciji:    
+  * `Borza` - ime borze (besedilo)
+* `Regija` - podatek kje se borza "nahaja" (besedilo)
+* `Market_cap` - meritev: tržna kapitalizacija na posamezni borzi, (število)
+* `Monthly_volume` - meritev: mesečno trgovanje (število)
+  
 ***
 
 # Analiza in vizualizacija podatkov
@@ -67,41 +61,16 @@ print(graf2)
 ```{r vizualizacija, results='hide'}
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
-
+Spodnji graf prikazuje spreminjane cen delnic od 1. 1. 2010 do 1. 1. 2021. Opazimo, da v povprečju prevlada trend naraščanja cen.
 ```{r}
 print(graf2)
 ```
-
-Spodnji zemljevid prikazuje povprečno velikost družine za vsako občino.
-
-```{r zemljevid, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-# tm_shape(merge(zemljevid, povprecja, by.x="OB_UIME", by.y="obcina")) +
-#   tm_polygons("povprecje", title="Povprečje") +
-#   tm_layout(title="Povprečno število otrok v družini")
+```{r}
+cplot
 ```
+
 
 ***
 
 # Napredna analiza podatkov
 
-```{r analiza}
-# source("analiza/analiza.r", encoding="UTF-8")
-```
-
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-# ggplot(inner_join(obcine, data.frame(obcina=names(skupine),
-#                                      skupina=factor(skupine)), by="obcina")
-# , aes(x=povrsina, y=naselja, color=skupina, size=prebivalci/1000)) + geom_point() +
-#   ggtitle("Število naselij glede na površino občine") +
-#   xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") +
-#   guides(color=guide_legend(title="Skupina"),
-#          size=guide_legend(title="Prebivalci (* 1000)"))
-```
-
-***
-
-```{r shiny}
-# shinyAppDir("shiny", options=list(width="100%", height=600))
-```

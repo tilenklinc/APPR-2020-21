@@ -7,8 +7,8 @@ ggplot(APPL.close, aes(x=Datum, y=Vrednost)) + geom_line()
 graf2 <- ggplot(zdruzena %>% filter(Tip == "Open",
                            Ime %in% c("AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")),
        aes(x=Datum, y=Vrednost, color=Ime)) + geom_line() + ggtitle("Cena delnic skozi čas") + 
-  ylab("Cena na delnico") + xlab("Leto")
-graf2
+  ylab("Cena na delnico [$]") + xlab("Leto")
+
 graf3 <- ggplot(zdruzena %>% filter(Tip == "Open",
                            Ime %in% c("AAPL","NVDA","AMZN","MSFT","AMD", "INTC","ADBE", "SNE")),
        aes(x=Datum, y=Vrednost, color=Ime)) + geom_line() + 
@@ -27,25 +27,25 @@ graf3
 #procentAMD <- distinct(procentAMD)
 #procentAMD$Vrednost %>% sapply(`/` )
 
-graf5 <- candleChart(NVDA, TA=c(addMACD(),addVo()), subset = '2019', theme='white')
-graf6 <- candleChart(NVDA, TA=NULL, subset = '2019', theme='white')
+# graf5 <- candleChart(NVDA, TA=c(addMACD(),addVo()), subset = '2019', theme='white')
+# graf6 <- candleChart(NVDA, TA=NULL, subset = '2019', theme='white')
 
-graf7 <- chartSeries(NVDA, 
-            type = c("auto", "matchsticks"), 
-            subset = '2018-01::',
-            show.grid = TRUE,
-            major.ticks='auto', minor.ticks=TRUE,
-            multi.col = TRUE,
-            TA=c(addMACD(),addVo()))
+# graf7 <- chartSeries(NVDA, 
+#            type = c("auto", "matchsticks"), 
+#            subset = '2018-01::',
+#            show.grid = TRUE,
+#            major.ticks='auto', minor.ticks=TRUE,
+#            multi.col = TRUE,
+#            TA=c(addMACD(),addVo()))
 
-graf8 <- chartSeries(NVDA, 
-            type = c("auto", "matchsticks"), 
-            subset = '2019-01::',
-            show.grid = TRUE,
-            major.ticks='auto', minor.ticks=TRUE,
-            multi.col = FALSE,
-            TA=c(addMACD(),addVo(),addSMA(n=200,col = 'blue'),addSMA(n=50,col = 'red'),addSMA(n=22,col = 'green'),
-                 addROC(n=200,col = 'blue'),addROC(n=50,col = 'red'),addROC(n=22,col = 'green')))
+# graf8 <- chartSeries(NVDA, 
+#            type = c("auto", "matchsticks"), 
+#            subset = '2019-01::',
+#            show.grid = TRUE,
+#            major.ticks='auto', minor.ticks=TRUE,
+#            multi.col = FALSE,
+#            TA=c(addMACD(),addVo(),addSMA(n=200,col = 'blue'),addSMA(n=50,col = 'red'),addSMA(n=22,col = 'green'),
+#                 addROC(n=200,col = 'blue'),addROC(n=50,col = 'red'),addROC(n=22,col = 'green')))
 
 urejena <- select(kapitalizacija, -c(4)) 
 
@@ -64,9 +64,9 @@ a$region <- gsub("United States", "USA", a$region)
 
 b <- full_join(a, world_map, by = "region")
 
-cplot <- ggplot(b, aes(x =long,y= lat, group = group, fill=Borza))+
+cplot <- ggplot(b, aes(x =long,y= lat, group = group, fill=Market_cap))+
   geom_polygon(color="white") + 
-  theme_void() + coord_equal() + labs(fill="Frequency") + 
-  theme(legend.position="bottom") + theme(legend.position="none")
+  theme_void() + coord_equal() + labs(fill="Vrednost tržne kapitalizacije") + 
+  theme(legend.position="bottom")
 
 cplot
