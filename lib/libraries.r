@@ -9,7 +9,12 @@ suppressWarnings(suppressMessages(library(quantmod)))
 suppressWarnings(suppressMessages(library(xml2)))
 suppressWarnings(suppressMessages(library(dplyr)))
 suppressWarnings(suppressMessages(library(RColorBrewer)))
-
+suppressWarnings(suppressMessages(library(shinythemes)))
+library(shinydashboard)
+library(shinythemes)
+library(ggplot2)
+library(forecast)
+library(tseries)
 
 
 options(gsubfn.engine="R")

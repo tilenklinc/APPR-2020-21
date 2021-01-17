@@ -55,6 +55,7 @@ return(zdruzena)
 }
 zdruzena <- uvozi.delnice()
 
+#UVOZ POSAMEZNIH TABEL
 uvozi.NVDA <- function() {
   getSymbols("NVDA", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
 return(NVDA)
@@ -62,12 +63,24 @@ return(NVDA)
 NVDA <- uvozi.NVDA()
 
 uvozi.AMD <- function() {
-  getSymbols("AMD", src = "yahoo", from = "2010-01-01", to = "2021-11-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  getSymbols("AMD", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
   return(AMD)
 }
 AMD <- uvozi.AMD()
 
-#HTML
+uvozi.AMZN <- function() {
+  getSymbols("AMZN", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  return(AMZN)
+}
+AMZN <- uvozi.AMZN()
+
+uvozi.GOOGL <- function() {
+  getSymbols("GOOGL", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  return(GOOGL)
+}
+GOOGL <- uvozi.GOOGL()
+
+#Wikipedija
 
 uvozi.kapitalizacijo <- function() {
   url <- "https://en.wikipedia.org/wiki/List_of_stock_exchanges"
@@ -99,9 +112,8 @@ uvozi.kapitalizacijo <- function() {
                             kraj=unlist(kraji))
   
   tabela$Market_cap[c(16:23)] <- 1.372
-  tabela$Market_cap <- as.numeric(gsub(",",".",tabela$Market_cap))
-  tabela$Monthly_volume <- as.numeric(gsub(",",".",tabela$Monthly_volume))
-  
+  tabela$Market_cap <- as.numeric(gsub(",","",tabela$Market_cap))
+  tabela$Monthly_volume <- as.numeric(gsub(",","",tabela$Monthly_volume))
   
   tabela <- tabela[-c(16:23), ]
   

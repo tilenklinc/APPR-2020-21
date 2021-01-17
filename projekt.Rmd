@@ -1,5 +1,5 @@
 ---
-title: "Analiza delniških trgov"
+title: "Analiza delniških trgov in tržnih kapitalizacij borz v programu R"
 author: "Tilen Klinc"
 output:
   html_document: default
@@ -27,7 +27,12 @@ source("lib/rstudio.r", encoding="UTF-8")
 
 # Izbira teme
 Za projektno nalogo pri APPR sem pripravil analizo delniških trgov in prikaz borz ter
-pripadajočih tržnih kapitalizacij na zemljevidu sveta.
+pripadajočih tržnih kapitalizacij na zemljevidu sveta. Primerjal sem odzivnost cen delnic
+na dogajanje v svetu (npr. izdaja novih produktov, COVID kriza in podobno).
+Svoje podatke sem v obliki xml in html tabele dobil:
+1. iz strani [Yahoo Finance](https://finance.yahoo.com/) v xml formatu
+2. tabela pa je bila uvožena iz Wikipedije.
+
 ![](slike/stock_market.png){width=20%}
 
 ***
@@ -38,8 +43,8 @@ pripadajočih tržnih kapitalizacij na zemljevidu sveta.
 source("uvoz/uvoz2.r", encoding="UTF-8")
 ```
 
-Svoje podatke sem uvozil v obliki HTML iz Wikipedije in kot xml preko Yahoo Finance strani.
-Pridobil in oblikoval sem dve osnovni tabeli:
+Svoje podatke sem uvozil v obliki tabele iz Wikipedije in kot xml preko Yahoo Finance strani.
+Kasnehe sem oblikoval in prečistil podatke ter ustvaril dve izhodiščni tabeli v obliki tidy data:
 
 
 1. Tabela s podatkih o delnicah (v obliki tidyData):    
@@ -48,7 +53,7 @@ Pridobil in oblikoval sem dve osnovni tabeli:
 * `Tip` - podatek: podatki izmerjeni na datum ob odprtju/zaprtju ter najvišja/najnižja vrednost (besedilo)
 * `Vrednost` - meritev: cena delnice v določenem trenutku (število)
 
-2. HTML tabela s podatki o tržni kapitalizaciji:    
+2. Tabela s podatki o tržni kapitalizaciji in mesečnem volumnu (tidyData):    
   * `Borza` - ime borze (besedilo)
 * `Regija` - podatek kje se borza "nahaja" (besedilo)
 * `Market_cap` - meritev: tržna kapitalizacija na posamezni borzi, (število)
@@ -60,13 +65,18 @@ Pridobil in oblikoval sem dve osnovni tabeli:
 
 ```{r vizualizacija, results='hide'}
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
+
 ```
-Spodnji graf prikazuje spreminjane cen delnic od 1. 1. 2010 do 1. 1. 2021. Opazimo, da v povprečju prevlada trend naraščanja cen.
+    
+Spodnji graf prikazuje spreminjane cen delnic od 1. 1. 2010 do 1. 1. 2021. Opazimo, da skozi leta v povprečju prevladuje trend naraščanja cen delnic.        
+
 ```{r}
-print(graf2)
+print(graf1)
 ```
+
+
 ```{r}
-cplot
+print(cplot)
 ```
 
 
@@ -74,3 +84,9 @@ cplot
 
 # Napredna analiza podatkov
 
+
+***
+# Shiny
+```{r shiny}
+shinyAppDir("shiny", options=list(width="100%", height=800))
+```
