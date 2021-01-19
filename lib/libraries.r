@@ -15,6 +15,8 @@ library(shinythemes)
 library(ggplot2)
 library(forecast)
 library(tseries)
+library(PerformanceAnalytics)
+library(reshape2)
 
 
 options(gsubfn.engine="R")

@@ -1,4 +1,5 @@
 # 2. faza: Uvoz podatkov
+options("getSymbols.warning4.0"=FALSE)
 
 #Delnice
 #Simboli:
@@ -74,11 +75,11 @@ uvozi.AMZN <- function() {
 }
 AMZN <- uvozi.AMZN()
 
-uvozi.GOOGL <- function() {
-  getSymbols("GOOGL", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
-  return(GOOGL)
+uvozi.ZM <- function() {
+  getSymbols("ZM", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
+  return(ZM)
 }
-GOOGL <- uvozi.GOOGL()
+ZM <- uvozi.ZM()
 
 #Wikipedija
 

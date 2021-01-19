@@ -16,9 +16,9 @@ Za področje raziskave pri predmetu analiza podatkov v programu R sem si izbral 
 /[Alphabet](https://finance.yahoo.com/quote/GOOGL/history?p=GOOGL)
 /[Adobe](https://finance.yahoo.com/quote/ADBE/history?p=ADBE)
 /[Intel](https://finance.yahoo.com/quote/INTC/history?p=INTC)
-/[Facebook](https://finance.yahoo.com/quote/FB/history?p=FB)) in preveril kako so dogajanja v preteklih tednih vplivala na gibanje delnice. Pregledal bom še high in low vseh izbranih delnic. Vse delnice so na borzi NASDAQ.
+/[Facebook](https://finance.yahoo.com/quote/FB/history?p=FB)) in preveril kako so dogajanja v preteklih mesecih vplivala na gibanje delnice. Pregledal bom še high in low vseh izbranih delnic. Vse delnice so na borzi NASDAQ.
 
-Tekom svojega projekta bom primerjal še velikosti prvih 25. borz glede na velikost tržne kapitalizacije v letu 2019 in jih razvrstil na zemljevidu.
+Tekom svojega projekta sem primerjal še velikosti svetovnih borz glede na velikost tržne kapitalizacije v letu 2019 in jih razvrstil na zemljevidu.
 
 #### Tabele:
 

@@ -44,11 +44,11 @@ source("uvoz/uvoz2.r", encoding="UTF-8")
 ```
 
 Svoje podatke sem uvozil v obliki tabele iz Wikipedije in kot xml preko Yahoo Finance strani.
-Kasnehe sem oblikoval in prečistil podatke ter ustvaril dve izhodiščni tabeli v obliki tidy data:
+Kasneje sem oblikoval in prečistil podatke ter ustvaril dve izhodiščni tabeli v obliki tidy data:
 
 
 1. Tabela s podatkih o delnicah (v obliki tidyData):    
-    *`Datum` - vsi dnevi od 1.1.2010 do 1.1.2021 (datum)
+* `Datum` - vsi dnevi od 1.1.2010 do 1.1.2021 (datum)
 * `Ime` - ime delnice, (besedilo)
 * `Tip` - podatek: podatki izmerjeni na datum ob odprtju/zaprtju ter najvišja/najnižja vrednost (besedilo)
 * `Vrednost` - meritev: cena delnice v določenem trenutku (število)
@@ -58,6 +58,14 @@ Kasnehe sem oblikoval in prečistil podatke ter ustvaril dve izhodiščni tabeli
 * `Regija` - podatek kje se borza "nahaja" (besedilo)
 * `Market_cap` - meritev: tržna kapitalizacija na posamezni borzi, (število)
 * `Monthly_volume` - meritev: mesečno trgovanje (število)
+
+3. Dodane posamezne tabele xts za uporabo: (niso v obliki tidyData):    
+* `Ime.High` - najvišja vrednost delnice na dan (število)
+* `Ime.Low` - najnižja vrednost delnice na dan (število)
+* `Ime.Open` - vrednost delnice ob odprtju borze (število)
+* `Ime.Close` - vrednpst delnice ob zaprtju borze (število)
+* `Ime.Volume` - celotna vrednost delnice na trgu (število)
+* `Ime.Adjusted` - prilagojena cena ob koncu dneva (število)
   
 ***
 
@@ -68,25 +76,61 @@ source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 
 ```
     
-Spodnji graf prikazuje spreminjane cen delnic od 1. 1. 2010 do 1. 1. 2021. Opazimo, da skozi leta v povprečju prevladuje trend naraščanja cen delnic.        
+Spodnji graf z logaritemsko skalo prikazuje spreminjane cen delnic od 1. 1. 2010 do 1. 1. 2021. Cene so normirane, vse se začnejo pri 1, nato pa padajo/naraščajo glede na prvotno vrednost. Opazimo, da skozi leta v povprečju prevladuje trend naraščanja cen delnic. Največji padec skozi obdobje desetih let je doživel Intel (INTC), vendar je kasneje s hitro rastjo ulovil rast koncurence. Najbolj konstantno rast je imel ADBE, ki je s svojim postopnim "monopolom" na trgu profesionalnih dizajnerskih programov pridobival na ugledu in ceni.
+Velik porast cen delnic podjetja Nvidia v letih 2016-2018 je posledica preoptimističnih analiz vključenih v poročilo podjetja. Ob izdaji (takrat) nove generacije grafičnih kartic so preveč optimistično ocenili prodajo, kar je rezultiralo v "balonček". V letu 2020, ko je izšla tretja generacija grafičnih kartic se to ni zgodilo. Podrobneje v naslednjem grafu, ki bo prikazal krajši časovni interval.
 
 ```{r}
 print(graf1)
 ```
 
 
+Kot omenjeno prej, spodnji graf prikazuje ožji časovni okvir v katerem sta primerjani ceni delnic podjetja Nvidia in podjetja AMD. Z modrima črtama sta označena datuma izdaje novih grafičnih kartic. Nvidia je to storila prva [(17. 9. 2020)](https://www.trustedreviews.com/news/amd-radeon-rx-5950-xt-release-date-price-specs-3972186), slabe tri mesece za njimi pa je na trg z novim produktom vstopil še AMD [(8. 12. 2020)](https://www.trustedreviews.com/news/amd-radeon-rx-5950-xt-release-date-price-specs-3972186).    
+* Nvidia: v nasprotju z letom 2016 ob izdaji tretje generacije grafičnih kartic ni bilo balončka, opazimo pa postopno in nekoliko pospešeno rast delnice.    
+* AMD: izdaja novega produkta na ceno delnice ni imela tako velikega vpliva kot pri Nvidii, četudi je njihov izdelek popolnoma konkurenčen izdelku Nvidie. V naslednjih dneh je sicer vrednost delnice Nvidia nekoliko padla, a se je čez nekaj dni zopet začela pobirati.
+
+
 ```{r}
-print(cplot)
+print(graf2)
 ```
+
+Podoben trend povezovanja delnic z realnimi dogodki opazimo pri delnici podjetja [Zoom Video Communications](https://en.wikipedia.org/wiki/Zoom_Video_Communications) pri kateri se je z začetkom pandemije Covid19 po celotnem svetu precej povečala uporaba njihovih storitev. Iz prejšnjih ugotovitev torej potrjujemo, da se delnice večinoma odzivajo na dogajanje v svetu, ne pa v vseh primerih po pričakovanjih. Podjetje Apple je namreč ob izdaji novih telefonov in tablic pričakovalo nekoliko večji dvig cene njihove delnice, kot so ga dejansko doživeli. Kasneje (v začetku leta 2021) z informacijo, da pospešujejo produckijo pa so dosegli 4% povečanje cene delnice.
+
+```{r}
+graf3 <- chartSeries(ZM, 
+                     type = c("auto", "matchsticks"), 
+                     subset = '2019-01::',
+                     show.grid = TRUE,
+                     major.ticks='auto', minor.ticks=TRUE,
+                     multi.col = FALSE,
+                     theme = "white",
+                     TA=c(addMACD(),addVo(),addSMA(n=200,col = 'blue'),
+                          addSMA(n=50,col = 'red'),addSMA(n=22,col ='green'),
+                          addROC(n=200,col = 'blue'),addROC(n=50,col = 'red'),addROC(n=22,col = 'green')))
+```
+
+Spodaj prikazani še donosi delnice ZM skozi leta.
+```{r}
+graf4
+```
+
 
 
 ***
 
 # Napredna analiza podatkov
+Na zemljevidu sveta sem s pomočjo barv ponazoril velikost borz. Največje borze (po tržni kapitalizaciji) so obarvane z nasvetlejšim odtenkom modre, najmanjše pa s temnejšim. Iz zemljevida lahko opazimo, da Ameriški borzni trg precej prednjači pred vsemi ostalimi.
+
+```{r fig.width = 8, fig.height = 4, fig.align='left'}
+print(cplot)
+```
 
 
 ***
 # Shiny
+Uporaba Shiny aplikacije: na [linku](https://finance.yahoo.com/most-active) poiščite oznako delnice. To vnesite v polje in poženite aplikacijo. Ta nato izriše graf (z zmanjšano natančnostjo na 10dnevna obdobja) in tabelo za prihajajočih deset dni.
+`PointForecast` predstavlja predvideno vrednost, `Lo 80/95` in `Hi 80/95` pa izračunan [interval zaupanja](https://omr.fnm.um.si/wp-content/uploads/2017/06/2.pdf).    
+*Nekaj primerov oznak delnic: AMZN, GOOGL, TSLA, SNE, GE, GME, BNGO, BAC, FB, ZM*.    
+
 ```{r shiny}
 shinyAppDir("shiny", options=list(width="100%", height=800))
 ```
