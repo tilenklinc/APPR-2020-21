@@ -109,7 +109,10 @@ graf3 <- chartSeries(ZM,
 ```
 
     
-Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica.    
+Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica.
+
+Na spodnjem grafu prikazujem še donose delnice GOOGL od leta 2007 naprej. Donosi so sorazmerni z uspešnostjo delnice, v slabših časih pa donosnost lahko pade. Če pogledamo modro piko, ki predstavlja povprečno vrednost donosov ugotovimo, da je skozi vsa leta nekoliko ali krepko nad ničlo z izjemo kriznega obdobja v 2008 in težavnega leta 2014.    
+
 
 ```{r}
 graf4
