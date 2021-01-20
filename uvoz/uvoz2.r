@@ -62,6 +62,9 @@ uvozi.NVDA <- function() {
 return(NVDA)
 }
 NVDA <- uvozi.NVDA()
+#posamezna tabela
+nvda <- data.frame(NVDA) %>%
+  tibble::rownames_to_column("Datum")
 
 uvozi.AMD <- function() {
   getSymbols("AMD", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)

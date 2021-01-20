@@ -19,6 +19,7 @@ library(PerformanceAnalytics)
 library(reshape2)
 
 
+
 options(gsubfn.engine="R")
 
 # Uvozimo funkcije za pobiranje in uvoz zemljevida.

@@ -53,42 +53,6 @@ graf4 <- ggplot(cal_donosi.m, aes(group, value, fill=group)) +
   scale_y_continuous(labels=function(x) paste0(x,".00%"))
 
 
-#------------------------TRENDS------------------------#
+#------------------------ČLANKI------------------------#
 
-trends <- gtrends(keyword = symbol, geo = "US", onlyInterest = TRUE)
-trends <- trends$interest_over_time %>%
-  as_data_frame() %>%
-  select(c(date, hits, keyword))
-trends$date <- as_date(ceiling_date(trends$date, unit = "weeks", change_on_boundary = NULL,
-                                    week_start = getOption("lubridate.week.start", 1)))
-trends %>%  
-  plot_ly(x=~date, y=~hits, mode = 'lines', name = "Google Search Trends") %>%
-  layout(title = paste0("Interest over Time: ",symbol), yaxis = list(title = "hits"))
-
-trends %>%
-  left_join(stock, by = "date") %>%
-  select(one_of(c("date", "hits", "close"))) %>%
-  drop_na() %>%
-  ggplot(aes(hits, close)) + geom_point(color="blue") + geom_smooth(model=lm, color = "black") +
-  labs(title =paste0(symbol,": Relationship between Hits and Close Stock Price"))
-
-
-#------------------------ZEMLJEVID------------------------#
-
-world_map <- map_data("world") %>% select(c(1:5))
-a <- urejena
-colnames(a)[2] <- "region"
-a$region <- gsub("European Union", "Denmark", a$region)
-a$region <- gsub("Nasdaq Nordic Exchanges", "Norway", a$region)
-a$region <- gsub(a$region[4], "UK", a$region)
-a$region <- gsub("United States", "USA", a$region)
-
-b <- full_join(a, world_map, by = "region")
-
-cplot <- ggplot(b, aes(x =long,y= lat, group = group, fill=Market_cap))+
-  geom_polygon(color="white") + 
-  theme_void() + coord_equal() + labs(fill="Vrednost tržne kapitalizacije[bio$]") + 
-  theme(legend.position="right")
-
-cplot
 

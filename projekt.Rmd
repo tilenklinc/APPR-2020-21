@@ -108,7 +108,9 @@ graf3 <- chartSeries(ZM,
                           addROC(n=200,col = 'blue'),addROC(n=50,col = 'red'),addROC(n=22,col = 'green')))
 ```
 
-Spodaj prikazani še donosi delnice ZM skozi leta.
+    
+Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica.    
+
 ```{r}
 graf4
 ```
@@ -118,9 +120,10 @@ graf4
 ***
 
 # Napredna analiza podatkov
-Na zemljevidu sveta sem s pomočjo barv ponazoril velikost borz. Največje borze (po tržni kapitalizaciji) so obarvane z nasvetlejšim odtenkom modre, najmanjše pa s temnejšim. Iz zemljevida lahko opazimo, da Ameriški borzni trg precej prednjači pred vsemi ostalimi.
+Na zemljevidu sveta sem s pomočjo barv ponazoril velikost borz. Največje borze (po tržni kapitalizaciji) so obarvane z nasvetlejšim odtenkom modre, najmanjše pa s temnejšim. Iz zemljevida lahko opazimo, da Ameriški borzni trg precej prednjači pred vsemi ostalimi, kar pa je popolnoma razumljivo, saj največji delež ljudi preko celega sveta posluje na NASDAQ ter New York Stock Exchange.
 
-```{r fig.width = 8, fig.height = 4, fig.align='left'}
+```{r analiza, results='hide',fig.width = 8, fig.height = 4, fig.align='left'}
+source("analiza/analiza.r", encoding="UTF-8")
 print(cplot)
 ```
 
