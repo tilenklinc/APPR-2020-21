@@ -107,9 +107,7 @@ graf3 <- chartSeries(ZM,
                           addSMA(n=50,col = 'red'),addSMA(n=22,col ='green'),
                           addROC(n=200,col = 'blue'),addROC(n=50,col = 'red'),addROC(n=22,col = 'green')))
 ```
-
     
-Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica.
 
 Na spodnjem grafu prikazujem še donose delnice GOOGL od leta 2007 naprej. Donosi so sorazmerni z uspešnostjo delnice, v slabših časih pa donosnost lahko pade. Če pogledamo modro piko, ki predstavlja povprečno vrednost donosov ugotovimo, da je skozi vsa leta nekoliko ali krepko nad ničlo z izjemo kriznega obdobja v 2008 in težavnega leta 2014.    
 
@@ -119,16 +117,39 @@ graf4
 ```
 
 
-
 ***
 
 # Napredna analiza podatkov
+Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica. Za ta namen sem pridobil podatke o Google brskanjih. Število brskanj na posamezen dan prikazujem na spodnjem grafu.
+*zaradi težav pri izvozu html widgeta prilagam le sliko, graf je narisan v ~/analiza/analiza2/graf5*
+
+![](slike/newplot.png)
+
+Po nadalnjem razmisleku lahko ugotovimo še kako se povezuje cena delnice s frekvenco iskanj. To je prikazano na spodnjem grafu.    
+
+```{r}
+print(graf6)
+```
+
+Svetovni splet nam omogoča hitro širjenje novic, mnenj in tudi vpliva. V spodnjem grafu, ki ga predstavlja oblak besed, so ponazorjene besede, ki se največkrat pojavljajo v povezavi z imenom delnice Amazon. Ker je podjetje veliko, opazimo, da niso vse besede povezane z delnico v finančnem smislu, vseeno pa je to za nas dovolj, saj bomo le primerjali ali je podjetje v zadnjem mesecu dni na dobrem ali slabem glasu, graf prilagam le kot zanimivost.    
+
+```{r}
+graf7 <- wordcloud(words = words_only$word, freq = words_only$n,scale=c(5,.5), max.words=50, colors=brewer.pal(8, "Dark2"))
+```
+
+Po preletu besedila in njihovi oceni sem jih ločil na pozitivne in negativne. Te sem nato prikazal v grafu spodaj.
+
+```{r}
+print(graf8)
+```
+
+## Ponazoritev kapitalizacij na zemljevidu
 Na zemljevidu sveta sem s pomočjo barv ponazoril velikost borz. Največje borze (po tržni kapitalizaciji) so obarvane z nasvetlejšim odtenkom modre, najmanjše pa s temnejšim. Iz zemljevida lahko opazimo, da Ameriški borzni trg precej prednjači pred vsemi ostalimi, kar pa je popolnoma razumljivo, saj največji delež ljudi preko celega sveta posluje na NASDAQ ter New York Stock Exchange.
 
-```{r analiza, results='hide',fig.width = 8, fig.height = 4, fig.align='left'}
-source("analiza/analiza.r", encoding="UTF-8")
+```{r}
 print(cplot)
 ```
+
 
 
 ***

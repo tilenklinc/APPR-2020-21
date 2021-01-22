@@ -46,13 +46,11 @@ cal_donosi.m <- melt(cal_donosi, id.vars="group")
 graf4 <- ggplot(cal_donosi.m, aes(group, value, fill=group)) + 
   geom_boxplot(alpha=0.5, varwidth = TRUE) +
   theme(legend.position = "right") +
-  ggtitle("Letni donosi delnice ZM") + 
+  ggtitle("Letni donosi delnice GOOGL") + 
   theme(plot.title = element_text(hjust=0.5)) + 
   stat_summary(fun.y = mean, geom = "point", shape=20, size=5, color="blue", fill="blue") +
   labs(x=NULL,y=NULL) + 
   scale_y_continuous(labels=function(x) paste0(x,".00%"))
 
-
-#------------------------ČLANKI------------------------#
 
 

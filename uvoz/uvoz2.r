@@ -1,7 +1,7 @@
 # 2. faza: Uvoz podatkov
 options("getSymbols.warning4.0"=FALSE)
 
-#Delnice
+#--------------------------Delnice----------------------
 #Simboli:
 #Apple(AAPL), Nvidia Corporation(NVDA), Amazon.com(AMZN), Microsoft(MSFT),
 #AMD(AMD), Intel Corp(INTC), Alphabet Inc(GOOGL), Adobe(ADBE), Sony(SNE)
@@ -56,7 +56,7 @@ return(zdruzena)
 }
 zdruzena <- uvozi.delnice()
 
-#UVOZ POSAMEZNIH TABEL
+#------------------UVOZ POSAMEZNIH TABEL---------------
 uvozi.NVDA <- function() {
   getSymbols("NVDA", src = "yahoo", from = "2010-01-01", to = "2021-01-01", auto.assign = TRUE, getSymbols.warning4.0=FALSE)
 return(NVDA)
@@ -84,7 +84,7 @@ uvozi.ZM <- function() {
 }
 ZM <- uvozi.ZM()
 
-#Wikipedija
+#-------------------------Wikipedija---------------------
 
 uvozi.kapitalizacijo <- function() {
   url <- "https://en.wikipedia.org/wiki/List_of_stock_exchanges"
@@ -126,4 +126,43 @@ uvozi.kapitalizacijo <- function() {
 }
 
 kapitalizacija <- uvozi.kapitalizacijo()
+
+
+#------------------------uvoz preko API ključev---------------------
+## AMZN stock
+symbol <- "NVDA"
+company <- "Nvidia"
+
+uvozi.api <- function() {
+  source("uvoz/apikeys.R")
+  
+  date_from = today()-dyears(5)
+  
+  content1 <- sprintf("http://api.marketstack.com/v1/eod?access_key=%s&symbols=%s&sort=DESC&date_from=%s",
+                      marketstack_key, symbol, date_from) %>% GET()  %>% content() %>%
+    .$data %>% lapply(as.data.frame, stringsAsFactors=FALSE) %>% bind_rows() %>% mutate(date=parse_datetime(date))
+  
+  return(content1)
+
+}
+content1 <- uvozi.api()
+
+#--------------------------uvozi novice----------------------
+uvozi.news <- function() {
+  source("uvoz/apikeys.R")
+  date_from = "2020-12-22"
+  url_news = paste0("https://newsapi.org/v2/everything?q=",
+                    company,
+                    "&from=",date_from,
+                    "&sortBy=relevance&pageSize=100&language=en&apiKey=",newsapi_key)
+  url_news
+  results <- GET(url = url_news)
+  news <- content(results, "text")
+  news %<>%
+    fromJSON(flatten = TRUE) %>% #flatten
+    as.data.frame() %>% #make dataframe
+    select(c(articles.title, articles.description, articles.content, articles.publishedAt))
+  return(news)
+}
+news <- uvozi.news()
 
