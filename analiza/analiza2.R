@@ -18,18 +18,10 @@ cplot <- ggplot(b, aes(x =long,y= lat, group = group, fill=Market_cap))+
   theme(legend.position="right")
 
 
-
-#------------------urejanje tabele content1---------------------
-stock <- content1[,c(11, 13, 4, 2, 3, 1, 10)]
-
-names(stock)[c(1,7)] <- c("name","volume")
-
-
 #datatable(stock)
 
-
 #-----------------------TRENDS------------------------------
-
+#trends
 trends <- gtrends(keyword = symbol, geo = "US", onlyInterest = TRUE)
 trends <- trends$interest_over_time %>%
   as_tibble() %>%
@@ -44,10 +36,9 @@ graf5 <- trends %>%
   layout(title = paste0(symbol,": Zanimanje skozi čas"),
          yaxis = list(title = "iskanja"),
          xaxis = list(title = "datum"))
-print(graf5)
+
 #povezava med zadetki in ceno delnice
-graf6 <-
-  trends %>%
+graf6 <- trends %>%
   left_join(stock, by = "date") %>%
   select(one_of(c("date", "hits", "close"))) %>%
   drop_na() %>%
@@ -61,8 +52,7 @@ news_words <- news %>%
   filter(!word %in% append(stop_words$word, values = "chars"), str_detect(word, "^[a-z']+$"))
 news_words$date = as_date(news_words$articles.publishedAt)
 
-words_only <- news_words %>%
-  count(word, sort =TRUE)
+words_only <- news_words %>% count(word, sort =TRUE)
 
 set.seed(1)
 

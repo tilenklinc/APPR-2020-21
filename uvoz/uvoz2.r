@@ -133,6 +133,7 @@ kapitalizacija <- uvozi.kapitalizacijo()
 symbol <- "NVDA"
 company <- "Nvidia"
 
+
 uvozi.api <- function() {
   source("uvoz/apikeys.R")
   
@@ -142,10 +143,18 @@ uvozi.api <- function() {
                       marketstack_key, symbol, date_from) %>% GET()  %>% content() %>%
     .$data %>% lapply(as.data.frame, stringsAsFactors=FALSE) %>% bind_rows() %>% mutate(date=parse_datetime(date))
   
-  return(content1)
-
+  #------------------urejanje tabele content1---------------------
+  stock <- content1[,c(11, 13, 4, 2, 3, 1, 10)]
+  
+  names(stock)[c(1,7)] <- c("name","volume")
+  stock <- as.data.frame(stock)
+  
+  write.csv2(stock, file = "uvoz/stock.csv")
 }
-content1 <- uvozi.api()
+uvozi.api()
+stock <- read.csv2("uvoz/stock.csv")
+
+stock$date <- as_date(stock$date)
 
 #--------------------------uvozi novice----------------------
 uvozi.news <- function() {
@@ -162,7 +171,8 @@ uvozi.news <- function() {
     fromJSON(flatten = TRUE) %>% #flatten
     as.data.frame() %>% #make dataframe
     select(c(articles.title, articles.description, articles.content, articles.publishedAt))
-  return(news)
+  
+  write.csv2(news, file = "uvoz/news.csv")
 }
-news <- uvozi.news()
-
+uvozi.news()
+news <- read.csv2("uvoz/news.csv")[-(c(1))]
