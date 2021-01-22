@@ -10,7 +10,6 @@ library(data.table)
 #API and json
 library(httr)
 library(jsonlite)
-library(config)
 library(newsanchor)
 
 #Web Scraping
