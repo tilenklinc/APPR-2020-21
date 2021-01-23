@@ -1,4 +1,7 @@
 # 4. faza: Analiza podatkov
+## NVDA stock
+symbol <- "NVDA"
+company <- "Nvidia"
 
 #------------------------ZEMLJEVID------------------------#
 urejena <- kapitalizacija[-c(4)]
