@@ -1,4 +1,6 @@
-
+## NVDA stock
+symbol <- "NVDA"
+company <- "Nvidia"
 
 uvozi.api <- function() {
   source("uvoz/apikeys.R")

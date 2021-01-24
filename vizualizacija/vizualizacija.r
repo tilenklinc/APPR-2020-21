@@ -24,9 +24,8 @@ graf2 <- ggplot(zdruzena %>% filter(Tip == "Open",
                                     Ime %in% c("NVDA", "AMD")),
                 aes(x=Datum, y=Vrednost, color=Ime)) + geom_line(size=0.7) + 
   xlim(as.Date(c("2020-08-15", "2020-12-31"))) + ylim(c(0,600)) + ylab("Cena delnice [$]") +
-  geom_vline(xintercept = as.numeric(zdruzena$Datum[dates_vline]),col = "blue", lwd = 0.5) +
-  ggtitle("Pregled cen ob izdaji novih grafičnih kartic")
-
+  ggtitle("Pregled cen ob izdaji novih grafičnih kartic") + 
+  geom_vline(xintercept = as.numeric(zdruzena$Datum[dates_vline]),col = "blue", lwd = 0.5)
 
 #--------------------------RETURNS--------------------------#
 delnice <- getSymbols.yahoo("GOOGL", src="google", From="2005-01-01", auto.assign=FALSE)[,4]
@@ -49,8 +48,9 @@ graf4 <- ggplot(cal_donosi.m, aes(group, value, fill=group)) +
   ggtitle("Letni donosi delnice GOOGL") + 
   theme(plot.title = element_text(hjust=0.5)) + 
   stat_summary(fun.y = mean, geom = "point", shape=20, size=5, color="blue", fill="blue") +
-  labs(x=NULL,y=NULL) + 
-  scale_y_continuous(labels=function(x) paste0(x,".00%"))
-
+  labs(x=NULL,y=NULL) + ylab("Donos v odstotkih") + xlab("Leto") +
+  scale_y_continuous(labels=function(x) paste0(x,".00%")) + labs(fill="Donos v letu")
+  
+graf4
 
 

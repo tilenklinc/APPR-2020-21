@@ -37,8 +37,8 @@ trends$date <- as_date(ceiling_date(trends$date, unit = "weeks", change_on_bound
 graf5 <- trends %>%  
   plot_ly(x=~date, y=~hits, mode = 'lines', name = "Trend Google iskanja") %>%
   layout(title = paste0(symbol,": Zanimanje skozi čas"),
-         yaxis = list(title = "iskanja"),
-         xaxis = list(title = "datum"))
+         yaxis = list(title = "Iskanja"),
+         xaxis = list(title = "Datum"))
 
 #povezava med zadetki in ceno delnice
 graf6 <- trends %>%
@@ -46,13 +46,15 @@ graf6 <- trends %>%
   select(one_of(c("date", "hits", "close"))) %>%
   drop_na() %>%
   ggplot(aes(hits, close)) + geom_point(color="orange") + geom_smooth(color = "blue") +
-  labs(title =paste0(symbol,": Zveza med Google iskanji in ceno")) + ylab("cena ob zaprtju [$]") + xlab("zadetki")
+  labs(title =paste0(symbol,": Zveza med Google iskanji in ceno")) + ylab("Cena ob zaprtju [$]") + xlab("Zadetki")
 
 #----------------------------ČLANKI-------------------------------
 news_words <- news %>%
   select(c("articles.title","articles.description", "articles.content", "articles.publishedAt")) %>%
   unnest_tokens(word, articles.description) %>%
   filter(!word %in% append(stop_words$word, values = "chars"), str_detect(word, "^[a-z']+$"))
+
+news$articles.description <- as.character(news$articles.description)
 news_words$date = as_date(news_words$articles.publishedAt)
 
 words_only <- news_words %>% count(word, sort =TRUE)
@@ -70,10 +72,11 @@ sentiment_summary <- news_words %>%
   filter(!is.na(value)) %>%
   group_by(articles.title, date) %>%
   summarise(value = mean(value)) %>%
-  mutate(sentiment = ifelse(value>0, "pozitiven","negativen")) 
+  mutate(Sentiment = ifelse(value>0, "Pozitiven","Negativen"))
 
 #vse novice
 #datatable(sentiment_summary)
 graf8 <- ggplot(sentiment_summary, aes(date, value)) +
   geom_bar(stat = "identity", aes(fill=sentiment)) +
-  ggtitle(paste0(symbol, ": Vtis novic skozi čas")) 
+  ggtitle(paste0(symbol, ": Vtis novic skozi čas")) + ylab("Vtis članka v točkah") +
+  xlab("Datum")

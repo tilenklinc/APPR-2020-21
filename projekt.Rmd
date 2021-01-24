@@ -121,9 +121,11 @@ graf4
 
 # Napredna analiza podatkov
 Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica. Za ta namen sem pridobil podatke o Google brskanjih. Število brskanj na posamezen dan prikazujem na spodnjem grafu.
-*zaradi težav pri izvozu html widgeta prilagam le sliko, graf je narisan v ~/analiza/analiza2/graf5*
 
-![](slike/newplot.png)
+```{r}
+graf5
+```
+
 
 Po nadalnjem razmisleku lahko ugotovimo še kako se povezuje cena delnice s frekvenco iskanj. To je prikazano na spodnjem grafu.    
 
@@ -138,7 +140,7 @@ Svetovni splet nam omogoča hitro širjenje novic, mnenj in tudi vpliva. V spodn
 graf7 <- wordcloud(words = words_only$word, freq = words_only$n,scale=c(5,.5), max.words=50, colors=brewer.pal(8, "Dark2"))
 ```
 
-Po preletu besedila in njihovi oceni sem jih ločil na pozitivne in negativne. Te sem nato prikazal v grafu spodaj.
+Po preletu besedila in njihovi oceni sem članke v zadnjih tridesetih dneh ločil na pozitivne in negativne. Te sem nato prikazal v grafu spodaj.
 
 ```{r}
 print(graf8)

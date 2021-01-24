@@ -1,4 +1,5 @@
 # Dodatni paketi za poganjanje projekta
+
 # Namestitev se bo izvedla pred vsakim zaganjanjem v Binderju
 # in lahko tako podaljša čas zaganjanja.
 # Za boljšo učinkovitost se lahko vnaprej
@@ -6,9 +7,14 @@
 #   https://github.com/jaanos/APPR-docker
 # Ne vključuj v svoj program!
 
-#install.packages(c(
-#    "expm",
-#    "formatR",
-#    "numDeriv",
-#    "rootSolve"
-#))
+install.packages(c(
+  "bea.R",
+  "config",
+  "gtrendsR",
+  "newsanchor",
+  "PerformanceAnalytics",
+  "prophet",
+  "textdata",
+  "tidytext",
+  "wordcloud"
+))
