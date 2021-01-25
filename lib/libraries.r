@@ -1,5 +1,6 @@
 #install.packages("xml2", type="source")
-#data cleanup
+
+#Čiščenje podatkov
 library(dplyr)
 library(tidyr)
 library(magrittr)
@@ -13,7 +14,7 @@ library(jsonlite)
 library(config)
 library(newsanchor)
 
-#Web Scraping
+#Internetni podatki
 library(rvest)
 
 #Visualization
@@ -35,23 +36,17 @@ library(RColorBrewer)
 #Forecasting
 library(quantmod)
 library(forecast)
-library(tseries)
-library(curl)
-
 
 suppressWarnings(suppressMessages(library(knitr)))
 suppressWarnings(suppressMessages(library(rvest)))
 suppressWarnings(suppressMessages(library(gsubfn)))
 suppressWarnings(suppressMessages(library(tmap)))
 suppressWarnings(suppressMessages(library(shiny)))
-suppressWarnings(suppressMessages(library(quantmod)))
 suppressWarnings(suppressMessages(library(xml2)))
-suppressWarnings(suppressMessages(library(dplyr)))
 suppressWarnings(suppressMessages(library(RColorBrewer)))
 suppressWarnings(suppressMessages(library(shinythemes)))
 library(shinydashboard)
 library(shinythemes)
-library(forecast)
 library(tseries)
 library(PerformanceAnalytics)
 library(reshape2)
