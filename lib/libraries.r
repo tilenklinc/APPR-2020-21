@@ -36,7 +36,6 @@ library(RColorBrewer)
 library(quantmod)
 library(forecast)
 library(tseries)
-library(prophet)
 library(curl)
 
 

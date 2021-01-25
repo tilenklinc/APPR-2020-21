@@ -120,9 +120,10 @@ graf4
 ***
 
 # Napredna analiza podatkov
-Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica. Za ta namen sem pridobil podatke o Google brskanjih. Število brskanj na posamezen dan prikazujem na spodnjem grafu.
+Po ugotovitvi, da dogajanje v svetu dejansko lahko vpliva na ceno delnic, me zanima kako na delnice vpliva medijsko poročanje, članki, novice ter ali lahko iz internetnih objav, ključnih besed, pogostosti pojavitev določenih pojmov razberemo kako uspešna je določena delnica. Za ta namen sem pridobil podatke o Google brskanjih. Število brskanj na posamezen dan prikazujem na spodnjem grafu.   
 
-```{r}
+```{r analiza}
+source("analiza/analiza2.R", encoding="UTF-8")
 graf5
 ```
 
@@ -130,7 +131,6 @@ graf5
 Po nadalnjem razmisleku lahko ugotovimo še kako se povezuje cena delnice s frekvenco iskanj. To je prikazano na spodnjem grafu.    
 
 ```{r}
-source("analiza/analiza2.r", encoding="UTF-8")
 graf6
 ```
 

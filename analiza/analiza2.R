@@ -65,6 +65,7 @@ set.seed(1)
 #wordcloud(words = words_only$word, freq = words_only$n,scale=c(5,.5), max.words=50, colors=brewer.pal(8, "Dark2"))
 
 #----------------------VTIS članka--------------------------
+assignInNamespace("printer", function(data_name) 1, "textdata")
 afinn <- get_sentiments("afinn")
 
 sentiment_summary <- news_words %>%
@@ -77,6 +78,6 @@ sentiment_summary <- news_words %>%
 #vse novice
 #datatable(sentiment_summary)
 graf8 <- ggplot(sentiment_summary, aes(date, value)) +
-  geom_bar(stat = "identity", aes(fill=sentiment)) +
+  geom_bar(stat = "identity", aes(fill=Sentiment)) +
   ggtitle(paste0(symbol, ": Vtis novic skozi čas")) + ylab("Vtis članka v točkah") +
   xlab("Datum")

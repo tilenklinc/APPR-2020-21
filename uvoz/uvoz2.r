@@ -131,8 +131,8 @@ kapitalizacija <- uvozi.kapitalizacijo()
 #---------------------uvoz preko API ključev---------------------
 
 #STOCK
-stock <- read.csv2("uvoz/stock.csv")
+stock <- read_csv2("uvoz/stock.csv", locale=locale(encoding="Windows-1250")) %>% select(-1)
 stock$date <- as_date(stock$date)
 
 #NEWS
-news <- read.csv2("uvoz/news.csv")[-(c(1))]
+news <- read_csv2("uvoz/news.csv", locale=locale(encoding="Windows-1250")) %>% select(-1)
