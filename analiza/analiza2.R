@@ -17,9 +17,9 @@ b <- full_join(a, world_map, by = "region")
 
 cplot <- ggplot(b, aes(x =long,y= lat, group = group, fill=Market_cap))+
   geom_polygon(color="white") + 
-  theme_void() + coord_equal() + labs(fill="Vrednost tržne kapitalizacije[bio$]") + 
-  theme(legend.position="right")
-
+  theme_void() + coord_equal() + labs(fill="Kapitalizacija) + 
+  theme(legend.position="right") + theme(title = "Vrednost tržne kapitalizacije v miljardah dolarjev")
+cplot
 
 #datatable(stock)
 

@@ -49,7 +49,7 @@ graf4 <- ggplot(cal_donosi.m, aes(group, value, fill=group)) +
   theme(plot.title = element_text(hjust=0.5)) + 
   stat_summary(fun.y = mean, geom = "point", shape=20, size=5, color="blue", fill="blue") +
   labs(x=NULL,y=NULL) + ylab("Donos v odstotkih") + xlab("Leto") +
-  scale_y_continuous(labels=function(x) paste0(x,".00%")) + labs(fill="Donos v letu")
+  scale_y_continuous(labels=function(x) paste0(x,".00%")) + labs(fill="Donos v letu") + theme(legend.position = "none")
   
 graf4
 
